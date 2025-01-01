@@ -54,3 +54,18 @@ predictions = clf.predict(x_test)
 # Evaluate model performance using R-squared score
 score = r2_score(y_test, predictions)
 print(f"Model R-squared score: {score}")
+
+prediction-model/
+│
+├── data/
+│   └── california_housing_test.csv  # Dataset used for training and prediction
+│
+├── scripts/
+│   ├── data_preprocessing.py        # Script for data cleaning and preprocessing
+│   ├── model_training.py            # Script for training the prediction model
+│   └── model_evaluation.py          # Script for evaluating the trained model
+│
+├── requirements.txt                # Required libraries to run the project
+├── README.md                       # Project description and instructions
+└── LICENSE                         # License file (optional)
+
