@@ -13,7 +13,7 @@ df.head()
 # Optionally save preprocessed data to CSV
 df.to_csv('/path/to/processed_data.csv', index=False)
 
-# 🧠 Model Training
+# Model Training
  
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -37,7 +37,7 @@ clf.fit(x_train, y_train)
 import joblib
 joblib.dump(clf, 'model.pkl')
 
-# 📈 Model Evaluation
+# Model Evaluation
 import pandas as pd
 from sklearn.metrics import r2_score
 import joblib
