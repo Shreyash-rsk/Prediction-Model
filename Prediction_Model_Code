@@ -1,0 +1,56 @@
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("/path/to/data/california_housing_test.csv")
+
+# Data preprocessing: Features and target variable
+x = df[['total_rooms', 'population']]  # Features
+y = df['households']  # Target variable
+
+# Display first few rows
+df.head()
+
+# Optionally save preprocessed data to CSV
+df.to_csv('/path/to/processed_data.csv', index=False)
+
+# 🧠 Model Training
+ 
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import pandas as pd
+
+# Load the preprocessed dataset
+df = pd.read_csv("/path/to/processed_data.csv")
+
+# Features and target variable
+x = df[['total_rooms', 'population']]
+y = df['households']
+
+# Split data into train and test sets (50% test size)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=42)
+
+# Initialize and train the Linear Regression model
+clf = LinearRegression()
+clf.fit(x_train, y_train)
+
+# Save the trained model
+import joblib
+joblib.dump(clf, 'model.pkl')
+
+# 📈 Model Evaluation
+import pandas as pd
+from sklearn.metrics import r2_score
+import joblib
+
+# Load the dataset and the trained model
+df = pd.read_csv("/path/to/processed_data.csv")
+x_test = df[['total_rooms', 'population']]
+y_test = df['households']
+clf = joblib.load('model.pkl')
+
+# Make predictions using the trained model
+predictions = clf.predict(x_test)
+
+# Evaluate model performance using R-squared score
+score = r2_score(y_test, predictions)
+print(f"Model R-squared score: {score}")
